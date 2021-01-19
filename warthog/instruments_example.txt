@@ -1,0 +1,1 @@
+instruments -t "/Applications/Xcode.app/Contents/Applications/Instruments.app/Contents/Resources/templates/Time Profiler.tracetemplate" ./bin/warthog -e PWD /Users/dharabor/src/ddh/branches/warthog ./bin/warthog --scen orz700d.map.scen --alg jps

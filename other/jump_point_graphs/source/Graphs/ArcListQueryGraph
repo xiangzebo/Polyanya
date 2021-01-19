@@ -1,0 +1,40 @@
+Maintains a list of arcs
+Maintains a list of first arcs
+
+Query graphs (subgoal graphs) assume the following order of calls:
+
+- Add the start vertex
+- Add start edges
+- Add goal vertex
+- Add goal edges
+
+Goal added to (F)orward or (B)ackward graph and the arcs are either (R)eversed or not
+Directed-Forward:         F, R
+Undirected-Forward:       F, R
+Directed-Bidirectional:   B, !R
+Undirected-Bidirectional: F/B, !R
+
+Directed/Undirected-Forward
+Start edges: start to node  F
+Goal edges: node to goal    R 
+
+Undirected-Bidirectional (store a single graph):
+Start edges: start to node  F
+Goal edges: goal to node    F
+
+Directed-Bidirectioal
+Forward graph:
+Start edges: start to node  F
+Goal edges: none            -
+
+Backward graph:
+Start edges: none           -
+Goal edges: goal to node    F
+
+
+
+Start edges are always forward edges (originate from the start).
+Goal edges can be forward edges (originate from the goal) 
+
+ArcListQuery:
+- 

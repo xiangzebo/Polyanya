@@ -1,0 +1,7 @@
+*.o
+*.d
+*.exe
+bin
+.vscode/tags
+.vscode/ipch/
+utils/.vscode/tags

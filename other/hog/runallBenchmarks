@@ -1,0 +1,55 @@
+#!/bin/bash
+rm results_*
+
+rm -rf bgm/
+mkdir bgm
+#./runScenarios "experiments/scenarios/movingai/bgmaps/*" "-search astar"
+./runScenarios "experiments/scenarios/movingai/bgmaps/*" "-search jps online"
+./runScenarios "experiments/scenarios/movingai/bgmaps/*" "-search jps online depth=1"
+./runScenarios "experiments/scenarios/movingai/bgmaps/*" "-search jps online depth=2"
+./runScenarios "experiments/scenarios/movingai/bgmaps/*" "-search jps online depth=3"
+./runScenarios "experiments/scenarios/movingai/bgmaps/*" "-search jps offline"
+./runScenarios "experiments/scenarios/movingai/bgmaps/*" "-search jps offline depth=1"
+./runScenarios "experiments/scenarios/movingai/bgmaps/*" "-search jps offline depth=2"
+./runScenarios "experiments/scenarios/movingai/bgmaps/*" "-search jps offline depth=3"
+mv results* bgm/
+
+rm -rf dao/
+mkdir dao
+#./runScenarios "experiments/scenarios/movingai/dao/*" "-search astar"
+./runScenarios "experiments/scenarios/movingai/dao/*" "-search jps online"
+./runScenarios "experiments/scenarios/movingai/dao/*" "-search jps online depth=1"
+./runScenarios "experiments/scenarios/movingai/dao/*" "-search jps online depth=2"
+./runScenarios "experiments/scenarios/movingai/dao/*" "-search jps online depth=3"
+./runScenarios "experiments/scenarios/movingai/dao/*" "-search jps offline"
+./runScenarios "experiments/scenarios/movingai/dao/*" "-search jps offline depth=1"
+./runScenarios "experiments/scenarios/movingai/dao/*" "-search jps offline depth=2"
+./runScenarios "experiments/scenarios/movingai/dao/*" "-search jps offline depth=3"
+mv results* dao/
+
+rm -rf mazes/
+mkdir mazes
+#./runScenarios "experiments/scenarios/movingai/mazes/*" "-search astar"
+./runScenarios "experiments/scenarios/movingai/mazes/*" "-search jps online"
+./runScenarios "experiments/scenarios/movingai/mazes/*" "-search jps online depth=1"
+./runScenarios "experiments/scenarios/movingai/mazes/*" "-search jps online depth=2"
+./runScenarios "experiments/scenarios/movingai/mazes/*" "-search jps online depth=3"
+./runScenarios "experiments/scenarios/movingai/mazes/*" "-search jps offline"
+./runScenarios "experiments/scenarios/movingai/mazes/*" "-search jps offline depth=1"
+./runScenarios "experiments/scenarios/movingai/mazes/*" "-search jps offline depth=2"
+./runScenarios "experiments/scenarios/movingai/mazes/*" "-search jps offline depth=3"
+mv results* mazes/
+
+rm -rf rooms/
+mkdir rooms
+#./runScenarios "experiments/scenarios/movingai/rooms/*" "-search astar"
+./runScenarios "experiments/scenarios/movingai/rooms/*" "-search jps online"
+./runScenarios "experiments/scenarios/movingai/rooms/*" "-search jps online depth=1"
+./runScenarios "experiments/scenarios/movingai/rooms/*" "-search jps online depth=2"
+./runScenarios "experiments/scenarios/movingai/rooms/*" "-search jps online depth=3"
+./runScenarios "experiments/scenarios/movingai/rooms/*" "-search jps offline"
+./runScenarios "experiments/scenarios/movingai/rooms/*" "-search jps offline depth=1"
+./runScenarios "experiments/scenarios/movingai/rooms/*" "-search jps offline depth=2"
+./runScenarios "experiments/scenarios/movingai/rooms/*" "-search jps offline depth=3"
+mv results* rooms/
+

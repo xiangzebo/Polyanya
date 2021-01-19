@@ -1,0 +1,34 @@
+------------------------------------------------------------------------------
+README
+Directory:  ./hog 
+
+@author dharabor
+@created 2016-05-02
+------------------------------------------------------------------------------
+
+This directory contains a modified version of Nathan Sturtevant's pathfinding
+library Hierarchical Open Graph (HOG).  In the period 2009-2011 I used HOG as
+a development testbed for the algorithms known as Jump Point Search and
+Rectangular Symmetry Reduction. 
+
+Please note:
+The implementations found here are **VERY OLD** AND **NOT VERY OPTIMISED**
+They are no longer maintained.
+
+More recent implementations and extensions of Jump Point Search can be found 
+as part of the Warthog pathfinding library (see directory ./src).
+
+------------------------------------------------------------------------------
+Compilation notes
+------------------------------------------------------------------------------
+make
+
+------------------------------------------------------------------------------
+Running the program
+------------------------------------------------------------------------------
+./bin/hog 
+
+Executing the program without any arguments will cause it to print usage 
+instructions.  The program can be run in with or without a GUI.
+
+

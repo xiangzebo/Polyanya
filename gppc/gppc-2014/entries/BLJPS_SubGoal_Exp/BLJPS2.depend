@@ -1,0 +1,65 @@
+# depslib dependency file v1.0
+1419684831 source:/home/jason/Desktop/CompetitionCode/BLJPS2/Entry.cpp
+	"Entry.h"
+	"BL_JPS_Experimental_2.h"
+
+1419684046 /home/jason/Desktop/CompetitionCode/BLJPS2/Entry.h
+	<stdint.h>
+	"Coordinate.h"
+
+1417001652 /home/jason/Desktop/CompetitionCode/BLJPS2/Coordinate.h
+	<algorithm>
+
+1419684872 /home/jason/Desktop/CompetitionCode/BLJPS2/BL_JPS_Experimental_2.h
+	<stdio.h>
+	<string.h>
+	"Node.h"
+	"PathFindingAlgorithm.h"
+	"binaryHeap.h"
+
+1419684448 /home/jason/Desktop/CompetitionCode/BLJPS2/Node.h
+	<vector>
+	"Coordinate.h"
+
+1419682320 /home/jason/Desktop/CompetitionCode/BLJPS2/PathFindingAlgorithm.h
+	"Node.h"
+	"Entry.h"
+	<vector>
+	<string>
+
+1409833482 /home/jason/Desktop/CompetitionCode/BLJPS2/binaryHeap.h
+	<vector>
+	<iterator>
+	<cmath>
+	"Node.h"
+
+1419684363 source:/home/jason/Desktop/CompetitionCode/BLJPS2/main.cpp
+	<stdio.h>
+	<stdint.h>
+	<numeric>
+	<algorithm>
+	"ScenarioLoader.h"
+	"Timer.h"
+	"Entry.h"
+
+1315944494 /home/jason/Desktop/CompetitionCode/BLJPS2/ScenarioLoader.h
+	<vector>
+	<cstring>
+	<string>
+
+1315944498 /home/jason/Desktop/CompetitionCode/BLJPS2/Timer.h
+	<stdint.h>
+	<fstream>
+	<Carbon/Carbon.h>
+	<sys/time.h>
+
+1315944494 source:/home/jason/Desktop/CompetitionCode/BLJPS2/ScenarioLoader.cpp
+	<fstream>
+	"ScenarioLoader.h"
+	<assert.h>
+
+1315944498 source:/home/jason/Desktop/CompetitionCode/BLJPS2/Timer.cpp
+	"Timer.h"
+	<stdint.h>
+	<cstring>
+

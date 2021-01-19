@@ -1,0 +1,13 @@
+#!/bin/tcsh
+
+foreach y ( *.map )
+
+foreach x ( SubgoalGraph-2012 SubgoalGraph-Fast SubgoalGraph-Memory SubgoalGraph-Optimal novellastar anderson )
+
+echo "./$x -pre $y $y.scen"
+
+./$x -pre $y $y.scen
+
+end
+
+end

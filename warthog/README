@@ -1,0 +1,53 @@
+==============================================================================
+Warthog: a pathfinding library.
+Author: Daniel Harabor
+Contact: dharabor at google mail
+==============================================================================
+
+To compile: make fast
+To debug: make dev
+To profile: make profile
+
+Once compiled, run ./bin/warthog for a list of command line parameters. 
+A simple case is the following:
+
+./bin/warthog --scen orz700d.map.scen --alg jps --checkopt
+
+This invokes JPS on all instances in the scenario file orz700d.map.scen
+The parameter --checkopt is optional and may be omitted. It simply
+compares the length of a returned path with the optimal length specified
+in the scenario file.
+
+Various metrics are printed to the screen during execution. One line per instance.
+Metrics are: nodes expanded, nodes generated (i.e. put on open), nodes touched
+(i.e. evaluated, possibly resulting in an priority update), search time 
+in microseconds (wallclock time) and path cost.
+
+==============================================================================
+Program Options
+==============================================================================
+--alg [name]
+Used to specify a named search algorithm.
+
+--checkopt
+Set this parameter to compare the length of each computed path against an
+optimal length value specified by the scenario file at hand.
+
+--gen [map file]
+Used to generate random experiments over the specified map file.
+
+--help
+Set this parameter to print all available program options.
+
+--scen [file]
+Used to specify a scenario file for experiments.
+
+--verbose
+Set this parameter to print debugging information (use in conjunction with 
+'make dev').
+
+--wgm
+Set this parameter to treat the map as a weighted-cost grid 
+(cf. uniform cost). Under this model all tiles (save for explicit obstacles,
+denoted by the input map using character '@') are considered traversable and 
+have an associated cost equal to the ascii value used to describe the tile.

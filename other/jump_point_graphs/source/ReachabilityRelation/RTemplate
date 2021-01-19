@@ -1,0 +1,57 @@
+Finding cover for connections:
+
+- RConnect and RRefine are going to be used
+  - RConnect for query
+  - RRefine for refining the edge afterwards
+    - Doesn't seem necessary if RConnect can find a path.
+  
+Connecting subgoals: 
+- Only RRefine
+
+RCH:
+- Only RRefine
+
+
+// REFINE
+- RRefine(start, goal, & path, append = false)
+
+// BREAK
+- FindLastReachableIndex(path, start, goal):
+  - FreespaceReachability/Bounded-distance reachability can make use of g_values
+  - Safe-freespace-reachability also can do that, but requires a bit more.
+
+// CONNECT
+- RConnect(start, can_identify_superset):
+  - Finds all direct-R-reachable subgoals from a given node.
+  - For generating edges, do not identify superset.
+  - When connecting, superset can be identified.
+- CanDetectReachabilityOfQueryPoints:
+  - If not, then start and goal cannot be connected with RConnect. An RRefine
+    check is necessary.
+
+// EXPLORE  
+- RExploreFringe (ExploreReachableAreaFringe): 
+  - Explore until all fringe vertices are identified.
+- SetExploreForward/Backward
+- GetFringeNodes/GetExpansionOrder/GetData: For constructing SUB
+- GetExistingSubgoals/SubgoalDistances: For constructing SUB + RConnect
+  
+- DoesFringeNodeExist: Explore until one fringe vertex is found or it is verified
+                       that none exists.
+       
+// VISUALIZE:
+- uses subgoal manager, data, expansion order                
+
+// MISC
+- IsExplorationComplete: Doesn't seem to be used.
+- GetReachableDistance(s,t): Used by query subgoal graph when checking for
+  RReachability using RRefine
+
+- GetReachableAreaSize(start, num_reachable, num_direct_reachable)
+  
+  
+TODO: 
+- In QuerySubgoalGraph, replace GetReachableDistance + RRefine with a 
+  reachability check that also returns distance.
+
+  

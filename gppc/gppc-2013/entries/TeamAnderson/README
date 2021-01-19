@@ -1,0 +1,8 @@
+Compile:
+	g++ -O3 -Wall -o test main.cpp ScenarioLoader.cpp Timer.cpp Entry.cpp
+
+Note: I do not check for path connectivity.  If there are any unconnected start/goal nodes in the test set, this command must be used instead:
+	g++ -O3 -Wall -DTEST_FOR_PATH_CONNECTIVITY -o test main.cpp ScenarioLoader.cpp Timer.cpp Entry.cpp
+
+Note: The only source file I've edited is Entry.cc.  All the rest are downloaded from the website.
+

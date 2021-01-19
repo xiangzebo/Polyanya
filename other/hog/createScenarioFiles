@@ -1,0 +1,8 @@
+#!/bin/bash
+target_dir=$1
+shift
+for i in $(ls $target_dir*.map);
+do
+	echo ./bin/hog -genscenarios $i $@
+	./bin/hog -genscenarios $i $@
+done

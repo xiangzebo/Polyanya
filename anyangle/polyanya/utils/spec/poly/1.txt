@@ -1,0 +1,14 @@
+Polygon map file format version 1 is as defined:
+
+The first line is "poly", the header.
+The second line is the version of the format, 1.
+The third line contains an integer, N, which is how many polygons there are.
+Then follows N lines for each polygon:
+    NOTE: Every number below will be separated by spaces.
+    The first integer M is how many points there are in the poly.
+    Then follows 2*M (possibly non-integer) numbers in the form
+        x1 y1 x2 y2 [...] xM yM
+    such that the ith point has coordinates {xi, yi}.
+
+Assume that the polygons do not contain any self-intersections.
+To get the traversable area, take the symmetric difference of ALL polygons.

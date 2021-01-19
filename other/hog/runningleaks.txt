@@ -1,0 +1,5 @@
+compile with debugging flags
+set MallocStackLogging=1
+run program
+run leaks in another process
+(make sure it stays open long enough to run leaks in another process)

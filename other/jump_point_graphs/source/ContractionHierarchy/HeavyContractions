@@ -1,0 +1,26 @@
+Create a new contraction core, HeavyContractionCore:
+- Maintain the search graph with all the ascending and same-level edges.
+- Maintain another graph with only the descending edges to determine 
+  predecessors/successors.
+- Levels: Each node starts at a high level (the core level) and is moved to a 
+  lower level (starting at base level) when contracted.
+- Delay the directed version implementation for lattices?
+
+For both ContractionCore and HeavyContractionCore:
+- GetSearchGraph(the graph that will dynamically be updated as we contract nodes,
+  and that will be used to perform witness searches on).
+- GetPredecessors/Successors: Returns the list of predecessors/successors that
+  are used to determine shortcuts (witness searches between a pred and a succ).
+
+Only Core is done so far (and not yet tested).
+TODO:
+- Add heavy-r-contractions to other contraction files/
+- Search: 
+  - Backward search never settles same-level arcs.
+  - Forward search settles all arcs. If a non-highest-level node has a parent
+    at the same level, it is not expanded.
+    - !!!Be careful: If it has two potential parents, we should maybe select
+      the one with the lower level, otherwise we might forfeit completeness?
+    - On the other hand, maybe we can stall. This seems more likely?
+  - Do we use stall-on-demand?
+

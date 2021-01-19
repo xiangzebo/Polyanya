@@ -1,0 +1,22 @@
+!SESSION 2014-11-23 04:01:57.044 -----------------------------------------------
+eclipse.buildId=M20130204-1200
+java.version=1.7.0_55
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.core.resources 4 77 2014-11-23 04:09:47.665
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2014-11-23 04:09:47.665
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2014-11-23 04:09:47.665
+!MESSAGE /home/turtlebot/GPPC/new overlaps the workspace location: /home/turtlebot/GPPC/new
+
+!ENTRY org.eclipse.ui.ide 4 4 2014-11-23 04:10:11.579
+!MESSAGE Problems saving workspace
+
+!ENTRY org.eclipse.ui.ide 2 1 2014-11-23 04:10:11.581
+!MESSAGE Problems occurred while trying to save the state of the workbench.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2014-11-23 04:10:11.581
+!MESSAGE The project description file (.project) for 'RemoteSystemsTempFiles' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.

@@ -1,0 +1,74 @@
+class ShorterPathTest (FindShortestBypassingPath?)
+    - Check if a shorter or equal path exists between two nodes that does not pass through the node being contracted.
+    - Bypassing nodes:
+        - Implement a bypass_node element and check every generated node against this one.
+
+    - Bidirectional implementation:
+        - Given a node u to be contracted.
+        - For every start node s (predecessor of u) 
+            - Set start node
+            - For every goal node t (successors of u)
+                - Set goal node.
+                - Perform bidirectional search (up to cost limit c(s,u) + c(u,t)).
+                    - Always expand from the frontier with the smallest g-value.
+                - Check if shorter or equal path exists.
+                - Clear the backward search (forward search remains).
+            - Clear the forward search after iterating over all goal vertices.
+    - Bidirectional notes:
+        - Implement an expansion function that can take as input the graph to expand (forward or backward)   
+            
+
+    - Forward search implementation:
+        - Given a node u to be contracted.
+        - For all start vertices s (predecessor of u)
+            - Perform a dijkstra search from s until all goal vertices (successors of u) are found.
+            
+class EstimateNodeImportance
+    - Given a node and a (partially contracted) graph
+    - Use ShorterPathTest to determine extra edges
+    - Use (level + arcs_added/arcs_removed + hops_added/hops_removed) as priority: lower is better
+        - Used in both Ben's implementation and the routing kit
+        - implemented as integers (multiply level, arcs_added, and hops_added by a number: 1000 in routing kit, 1024 in Ben's implementation).
+        - Ben's implementation: if arcs or hops removed == 0; return infinity)
+        - Routing kit: always add 1 to arcs_removed and hops_removed.
+        - WHY IS LEVEL IMPORTANT? WHAT IS LEVEL?
+    - For R-Contractions:
+        - If at least one extra edge does not satisfy R-reachability, do not contract (high value).
+        - Stop as soon as such an edge is found (if any) for some speed-up.
+    - For Heavy R-Contractions: 
+        - Same as R-Contractions?
+        - Also include predecessors/successors from lower levels.
+            
+
+Determining Extra Edges (both for estimating node importance, and regular/R/heavy R contractions)
+    - Regular Contraction:
+        - For any core predecessor-successor pair s,t of u (s,t are uncontracted nodes):
+            - If c(s,u) + c(u,t) < shortest bypassing path length
+                - Extra edge (s,t)            
+
+    - R-Contraction:
+        - For any core predecessor-successor pair s,t of u (s,t are uncontracted nodes):
+            - If c(s,u) + c(u,t) < shortest bypassing path length
+                - If (s,t) satisfies R
+                    - Extra edge (s,t)            
+                - Else
+                    - Can't contract        
+
+    - Heavy R-Contraction:
+        - For any predecessor-successor pair s,t of u (s,t can be contracted or uncontracted nodes):
+            - If c(s,u) + c(u,t) < shortest bypassing path length
+                - If (s,t) satisfies R
+                    - Extra edge (s,t)            
+                - Else
+                    - Can't contract
+    
+    - R-Contraction implementation (freespace reachability):
+        - For any core predecessor-successor pair s,t of u (s,t are uncontracted nodes):
+            - If c(s,u) + c(u,t) < shortest bypassing path length
+                - If c(s,u) + c(u,t) == fd(s,t)
+                    - Extra edge (s,t)
+                - Else
+                    - Can't contract
+
+        - IDEA: Provide a function for lower-bound estimation (that is, for freespace distances)
+

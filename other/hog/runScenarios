@@ -1,0 +1,45 @@
+#!/bin/bash
+stamp=`date "+%d/%m/%y %H:%M:%S"`" $1"
+echo "$stamp runScenarios"
+echo "$stamp runScenarios" >> log
+
+function help
+{
+	echo "Syntax: ./runScenarios \"[path to scenario files]\" \"[args to pass hog]\" [number of runs]"
+	echo "Example: ./runScenarios \"experiments/scenarios/local/*\" \"-search jps\" 3"
+	echo "NB:"
+	echo "Quotation marks are important. Don't omit them!"
+	echo "It may also be necessary to append the wildcard character * to the end of "
+	echo "the path if every file in the target directory is a scenario"
+}
+
+if [ $# -le 1 ]
+then
+	echo "Error: Invalid syntax. $0 $1 $2 $3"
+	help
+	exit 1
+fi
+
+runs=
+if [ -n "$3" ]
+then
+	runs=$3
+else
+	runs=1
+fi
+
+for ((x=1;x<=$runs;x++)) ; do
+	for i in `ls $1` ;
+	do
+			echo "$i"
+			./bin/hog -scenario $1/$i -nogui $2 >> log
+			if [ "$?" -ne "0" ]
+			then
+				err="Failed while executing: ./bin/hog -scenario $i -nogui $2";
+				echo $err >> log
+				echo $err
+				exit 1
+			fi
+	done
+done
+
